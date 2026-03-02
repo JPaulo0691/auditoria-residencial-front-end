@@ -1,0 +1,28 @@
+.page-wrapper {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.content-card {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.table-container {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}

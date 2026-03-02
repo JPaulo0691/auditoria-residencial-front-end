@@ -12,8 +12,8 @@ export const routes: Routes = [
 				loadComponent: () => import('./componentes/dashboard/dashboard').then((m) => m.Dashboard),
 			},
 			{
-				path: 'cadastro-usuarios',
-				loadComponent: () => import('./componentes/cadastro-usuarios/cadastro-usuarios').then((m) => m.CadastroUsuarios),
+				path: 'relatorio-usuarios',
+				loadComponent: () => import('./componentes/cadastro/listagem-usuarios/listagem-usuarios').then((m) => m.ListagemUsuarios),
 			},
 		],
 	},
