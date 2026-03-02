@@ -58,9 +58,11 @@ $menu-hover-text: $text-color;
   color: $text-color;
 }
 
+// Conteúdo da página
 .page-content {
-  background-color: $background;
+  color: black;
 }
+
 
 .example-sidenav-content {
   display: flex;
@@ -82,13 +84,15 @@ $menu-hover-text: $text-color;
 }
 
 .menu-item-button:hover,
-.menu-item-button:focus-visible {
+.menu-item-button:focus-visible,
+.menu-item-button.active-menu-item {
   background-color: $menu-hover-bg;
   color: $menu-hover-text;
 }
 
 .menu-item-button:hover mat-icon,
-.menu-item-button:focus-visible mat-icon {
+.menu-item-button:focus-visible mat-icon,
+.menu-item-button.active-menu-item mat-icon {
   color: $menu-hover-text;
 }
 

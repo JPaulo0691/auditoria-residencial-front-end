@@ -31,18 +31,24 @@
     <mat-drawer #drawer class="example-sidenav" opened="true" mode="side">
       <mat-nav-list>
         <mat-list-item>
-          <button mat-button class="menu-item-button"><mat-icon>dashboard</mat-icon> Dashboard</button>
+          <a mat-button class="menu-item-button" routerLink="/dashboard" routerLinkActive="active-menu-item">
+            <mat-icon>dashboard</mat-icon> Dashboard
+          </a>
         </mat-list-item>
         <mat-list-item>
-          <button mat-button class="menu-item-button"><mat-icon>person</mat-icon>Cadastro de Pessoas</button>
+          <a mat-button class="menu-item-button" routerLink="/cadastro-usuarios" routerLinkActive="active-menu-item">
+            <mat-icon>person</mat-icon> Cadastro de Usuários
+          </a>
         </mat-list-item>
         <mat-list-item>
-          <button mat-button class="menu-item-button"><mat-icon>settings</mat-icon>Configurações</button>
+          <button mat-button class="menu-item-button"><mat-icon>settings</mat-icon> Configurações</button>
         </mat-list-item>
       </mat-nav-list>
     </mat-drawer>
 
-    <mat-drawer-content class="page-content"></mat-drawer-content>
+    <mat-drawer-content class="page-content">
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
   </mat-drawer-container>
 
   <div class="footer-row">
