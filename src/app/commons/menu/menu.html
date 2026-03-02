@@ -1,0 +1,58 @@
+<div class="menu-layout">
+  <mat-toolbar class="app-toolbar">
+    <button matIconButton (click)="drawer.toggle()" class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="app-title">Audit</span>
+    <span class="example-spacer"></span>
+    <span class="user-name">{{ userName() }}</span>
+    <button
+      matIconButton
+      class="example-icon favorite-icon"
+      [matMenuTriggerFor]="userMenu"
+      aria-label="Abrir menu do usuário"
+    >
+      <mat-icon>person</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-menu #userMenu="matMenu" xPosition="before">
+    <button mat-menu-item disabled>
+      <mat-icon>account_circle</mat-icon>
+      <span>{{ userName() }}</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Sair</span>
+    </button>
+  </mat-menu>
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="example-sidenav" opened="true" mode="side">
+      <mat-nav-list>
+        <mat-list-item>
+          <button mat-button class="menu-item-button"><mat-icon>dashboard</mat-icon> Dashboard</button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button class="menu-item-button"><mat-icon>person</mat-icon>Cadastro de Pessoas</button>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-button class="menu-item-button"><mat-icon>settings</mat-icon>Configurações</button>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content class="page-content"></mat-drawer-content>
+  </mat-drawer-container>
+
+  <div class="footer-row">
+    <div class="footer-logo-box">
+      <img class="footer-logo" src="/logofree.jpg" alt="">
+    </div>
+    <mat-toolbar class="app-footer">
+      <span class="example-spacer"></span>
+      <span>© 2026</span>
+    </mat-toolbar>
+  </div>
+</div>
+

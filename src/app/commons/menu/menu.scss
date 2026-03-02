@@ -1,0 +1,99 @@
+@use '../../../styles/colors' as *;
+
+$menu-hover-bg: $background;
+$menu-hover-text: $text-color;
+
+.menu-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $text-color;
+}
+
+.app-toolbar {
+  background-color: $primary;
+  color: $text-color;
+}
+
+.app-footer {
+  flex: 1;
+  background-color: $primary;
+  color: $text-color;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px;
+  background-color: $primary;
+}
+
+.footer-logo-box {
+  background-color: #fff;
+  padding: 6px;
+}
+
+.footer-logo {
+  display: block;
+  height: 45px;
+  width: 80px;
+}
+
+.app-title {
+  font-weight: 600;
+}
+
+.user-name {
+  margin-right: 8px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-container {
+  flex: 1;
+  min-height: 0;
+  color: $text-color;
+}
+
+.page-content {
+  background-color: $background;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+  border-radius: 0 !important;
+
+}
+
+.menu-item-button {
+  width: 100%;
+  justify-content: flex-start;
+  color: $text-color;
+}
+
+.menu-item-button:hover,
+.menu-item-button:focus-visible {
+  background-color: $menu-hover-bg;
+  color: $menu-hover-text;
+}
+
+.menu-item-button:hover mat-icon,
+.menu-item-button:focus-visible mat-icon {
+  color: $menu-hover-text;
+}
+
+.developer {
+  font-size: 12px;
+  text-align: center;
+}
+
