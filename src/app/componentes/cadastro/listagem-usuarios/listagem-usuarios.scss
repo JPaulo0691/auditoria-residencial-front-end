@@ -15,14 +15,25 @@
 .actions-row {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 12px;
   flex-wrap: wrap;
 }
 
 .table-container {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  border-radius: 5px;
   overflow: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 table {
   width: 100%;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
 }

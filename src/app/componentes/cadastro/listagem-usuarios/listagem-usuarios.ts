@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { Router, RouterModule } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -33,11 +37,31 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 @Component({
   selector: 'app-listagem-usuarios',
-  imports: [MatTableModule],
+  imports: [
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatPaginatorModule,
+    RouterModule
+  ],
   templateUrl: './listagem-usuarios.html',
   styleUrl: './listagem-usuarios.scss',
 })
-export class ListagemUsuarios {
+export class ListagemUsuarios implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(private router: Router) {}
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.dataSource.paginator = this.paginator;
+    });
+  }
+
+  navegarPara(rota: string): void {
+    this.router.navigate([rota]);
+  }
 }
