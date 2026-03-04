@@ -1,0 +1,29 @@
+.form-cadastro-usuarios {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+  .form-titulo {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  .form-campos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .campo-completo {
+    width: 100%;
+  }
+
+  .form-acoes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+}

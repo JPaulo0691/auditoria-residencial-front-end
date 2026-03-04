@@ -1,1 +1,38 @@
-<h1>Cadastro de Usuários</h1>
+<div class="form-cadastro-usuarios">
+  <h2 class="form-titulo">Cadastro de Usuário</h2>
+
+  <form [formGroup]="form" (ngSubmit)="salvar()" class="form-campos">
+
+    <mat-form-field appearance="outline" class="campo-completo">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" placeholder="Informe o nome" />
+      @if (form.get('nome')?.hasError('required') && form.get('nome')?.touched) {
+        <mat-error>Nome é obrigatório</mat-error>
+      }
+      @if (form.get('nome')?.hasError('minlength') && form.get('nome')?.touched) {
+        <mat-error>Nome deve ter ao menos 3 caracteres</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="campo-completo">
+      <mat-label>E-mail</mat-label>
+      <input matInput type="email" formControlName="email" placeholder="Informe o e-mail" />
+      @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+        <mat-error>E-mail é obrigatório</mat-error>
+      }
+      @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+        <mat-error>Informe um e-mail válido</mat-error>
+      }
+    </mat-form-field>
+
+    <div class="form-acoes">
+      <button (click)="navegueParaVoltar('/')">
+        <mat-icon>arrow_back</mat-icon> Voltar
+      </button>
+      <button mat-flat-button color="primary" type="submit">
+        <mat-icon>save</mat-icon> Salvar
+      </button>
+    </div>
+
+  </form>
+</div>
