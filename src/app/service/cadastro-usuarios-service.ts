@@ -28,4 +28,7 @@ export class CadastroUsuariosService {
     return usuarios;
   }
 
+  getUsuarios(): Usuario[] {
+    return this.getStorageUsuarios();
+  }
 }

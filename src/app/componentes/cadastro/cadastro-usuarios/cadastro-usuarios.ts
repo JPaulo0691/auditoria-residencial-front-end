@@ -42,9 +42,12 @@ export class CadastroUsuarios {
       this.form.markAllAsTouched();
       return;
     }
-    this.cadastroUsuariosService.salvarUsuario(this.form.value);
+    const usuarios = this.cadastroUsuariosService.getStorageUsuarios();
+    const idsValidos = usuarios.map(u => Number(u.id)).filter(id => !isNaN(id) && id > 0);
+    const novoId = idsValidos.length > 0 ? Math.max(...idsValidos) + 1 : 1;
+    this.cadastroUsuariosService.salvarUsuario({ ...this.form.value, id: novoId });
     this.snackBar.open('Usuário cadastrado com sucesso!', 'Fechar', { duration: 3000 });
-    this.form.reset();
+    this.navegueParaVoltar('/relatorio-usuarios');
   }
 
   navegueParaVoltar(destino: string): void {

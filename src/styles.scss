@@ -59,20 +59,36 @@ body {
   height: 100%;
 }
 /* You can add global styles to this file, and also import other style files */
-button {
+.btn-primary {
   background-color: $primary;
   color: $text-color;
   border: 1px solid $primary;
   padding: 6px 16px;
   border-radius: 10px;
-  width: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   cursor: pointer;
+
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
 }
 
-button:hover {
-  color: $background;
+.btn-secondary {
+  background-color: transparent;
+  color: $primary;
+  border: 1px solid $primary;
+  padding: 6px 16px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($primary, 0.08);
+  }
 }
