@@ -56,4 +56,12 @@
 
 </div>
 
+@if (dialogAberto) {
+  <app-editar-usuarios
+    [usuario]="usuarioSelecionado"
+    (salvo)="onSalvo($event)"
+    (fechar)="fecharDialog()">
+  </app-editar-usuarios>
+}
+
 

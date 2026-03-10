@@ -31,4 +31,13 @@ export class CadastroUsuariosService {
   getUsuarios(): Usuario[] {
     return this.getStorageUsuarios();
   }
+
+  atualizarUsuario(usuarioAtualizado: Usuario): void {
+    const usuarios = this.getStorageUsuarios();
+    const index = usuarios.findIndex(u => u.id === usuarioAtualizado.id);
+    if (index !== -1) {
+      usuarios[index] = usuarioAtualizado;
+      localStorage.setItem(CadastroUsuariosService.REPO_USUARIOS, JSON.stringify(usuarios));
+    }
+  }
 }

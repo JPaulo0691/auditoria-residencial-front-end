@@ -5,6 +5,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Router, RouterModule } from '@angular/router';
 import { CadastroUsuariosService } from '../../../service/cadastro-usuarios-service';
+import { Usuario } from '../../../model/usuario.model';
+import { EditarUsuarios } from '../editar-usuarios/editar-usuarios';
 
 @Component({
   selector: 'app-listagem-usuarios',
@@ -13,7 +15,8 @@ import { CadastroUsuariosService } from '../../../service/cadastro-usuarios-serv
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
-    RouterModule
+    RouterModule,
+    EditarUsuarios,
   ],
   templateUrl: './listagem-usuarios.html',
   styleUrl: './listagem-usuarios.scss',
@@ -23,6 +26,9 @@ export class ListagemUsuarios implements AfterViewInit {
   dataSource = new MatTableDataSource<any>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  dialogAberto = false;
+  usuarioSelecionado: Usuario | null = null;
 
   constructor(private router: Router, private cadastroUsuariosService: CadastroUsuariosService) {}
 
@@ -38,7 +44,22 @@ export class ListagemUsuarios implements AfterViewInit {
   }
 
   editarUsuario(id: number): void {
-    this.router.navigate(['/editar-usuarios', id]);
+    const usuario = this.cadastroUsuariosService.getUsuarios().find(u => u.id === id) ?? null;
+    if (usuario) {
+      this.usuarioSelecionado = usuario;
+      this.dialogAberto = true;
+    }
+  }
+
+  onSalvo(usuarioAtualizado: Usuario): void {
+    this.cadastroUsuariosService.atualizarUsuario(usuarioAtualizado);
+    this.dataSource.data = this.cadastroUsuariosService.getUsuarios();
+    this.fecharDialog();
+  }
+
+  fecharDialog(): void {
+    this.dialogAberto = false;
+    this.usuarioSelecionado = null;
   }
 
   excluirUsuario(id: number): void {
